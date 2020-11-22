@@ -1,0 +1,15 @@
+HTML
+1. HTML stands for Hypertext Markup Language
+2. It is basically a standard Markup language for giving a static skelton to web application and websites.
+3. It is a well standardized system
+
+CSS
+1. Cascading Style sheets which is known as CSS is a style sheet language that used to handle the presentation
+   of the web page containing HTML
+2. It makes the websites beautiful and modern looking
+
+JavaScript
+1. JavaScript which is often known as JS, is a high-level dynamic programming language
+2. It allows client-side scripting to create completely dynamic web application and websites
+
+
