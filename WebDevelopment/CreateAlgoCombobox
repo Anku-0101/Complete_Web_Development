@@ -1,0 +1,43 @@
+private IUIControl CreateAlgoComboControl()
+        {
+            UIInput input = new UIInput();
+            input.AddInput("name", "algoCombo");
+            input.AddInput("options", Model.AlgoOptions);
+
+            algoCombo = OmegaFactory.CreateControl("CheckBoxCombo", input);
+            algoCombo.ValidationCheck += AlgoCombo_ValidationCheck;
+
+            return algoCombo;
+        }
+
+        private void AlgoCombo_ValidationCheck(object sender, bool e)
+        {
+            this.parameterTab2.Children.Clear();
+
+            //TO-DO: why algo combo value is not getting updated
+            //var selectedAlgo = algoCombo.Value.ToString();
+            var selectedAlgo = (sender as IUIControl).Value.ToString();
+            Model.SelectedAlgo = selectedAlgo;
+
+            if (selectedAlgo == "Fold Change")
+            {
+                IUIControl foldChangeInputparameters = CreateFoldChangeInputparameters();
+                this.parameterTab2.Children.Add(foldChangeInputparameters.GetUIElement());
+            }
+
+            else if(selectedAlgo == "Volcano Plot")
+            {
+                UpdateGroupings();
+
+                IUIControl volcanoPlotInputparameters = CreateVolcanoPlotInputparameters();
+                this.parameterTab2.Children.Add(volcanoPlotInputparameters.GetUIElement());
+            }
+            else
+            {
+                this.parameterTab2.Children.Clear();
+            }
+        }
+		
+		
+		
+		//const string CORR_P_VALUE_COLUMN_NAME = "Corrected P-value Column";
